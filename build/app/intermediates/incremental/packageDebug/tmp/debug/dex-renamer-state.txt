@@ -1,4 +1,4 @@
-#Mon Mar 15 15:10:18 COT 2021
+#Mon Mar 15 16:34:20 COT 2021
 base.0=C\:\\Users\\aconcha\\Desktop\\udemy\\firebase_flutter\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex
