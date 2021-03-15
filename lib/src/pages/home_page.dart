@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:login_flutter/src/bloc/provider.dart';
+import 'package:firebase_flutter/src/bloc/provider.dart';
 class HomePage extends StatelessWidget {
 
 

@@ -1,6 +1,6 @@
 {
-    "name": "login_flutter",
-    "short_name": "login_flutter",
+    "name": "firebase_flutter",
+    "short_name": "firebase_flutter",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

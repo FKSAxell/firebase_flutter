@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:login_flutter/src/bloc/login_bloc.dart';
-export 'package:login_flutter/src/bloc/login_bloc.dart';
+import 'package:firebase_flutter/src/bloc/login_bloc.dart';
+export 'package:firebase_flutter/src/bloc/login_bloc.dart';
 
 class Provider extends InheritedWidget{
 

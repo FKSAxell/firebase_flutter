@@ -2,7 +2,7 @@
 import 'dart:async';
 import 'package:rxdart/rxdart.dart';
 
-import 'package:login_flutter/src/bloc/validators.dart';
+import 'package:firebase_flutter/src/bloc/validators.dart';
 
 class LoginBloc with Validators{
 

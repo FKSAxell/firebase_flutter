@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:login_flutter/src/bloc/login_bloc.dart';
-import 'package:login_flutter/src/bloc/provider.dart';
+import 'package:firebase_flutter/src/bloc/login_bloc.dart';
+import 'package:firebase_flutter/src/bloc/provider.dart';
 class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
