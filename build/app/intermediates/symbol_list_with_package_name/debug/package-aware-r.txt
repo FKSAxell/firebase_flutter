@@ -1,4 +1,4 @@
-com.example.login_flutter
+com.example.firebase_flutter
 attr alpha
 attr font
 attr fontProviderAuthority

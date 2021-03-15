@@ -4,7 +4,7 @@
     "type": "COMPATIBLE_SCREEN_MANIFEST",
     "kind": "Directory"
   },
-  "applicationId": "com.example.login_flutter",
+  "applicationId": "com.example.firebase_flutter",
   "variantName": "debug",
   "elements": []
 }

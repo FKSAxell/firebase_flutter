@@ -140,13 +140,13 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "login_flutter",
+      "name": "firebase_flutter",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2021-03-15T17:46:34.414033Z",
+  "generated": "2021-03-15T20:04:38.216713Z",
   "generator": "pub",
   "generatorVersion": "2.13.0-77.0.dev"
 }

@@ -4,7 +4,7 @@
     "type": "MERGED_MANIFESTS",
     "kind": "Directory"
   },
-  "applicationId": "com.example.login_flutter",
+  "applicationId": "com.example.firebase_flutter",
   "variantName": "debug",
   "elements": [
     {
