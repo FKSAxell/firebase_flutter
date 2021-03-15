@@ -1,3 +1,4 @@
+import 'package:firebase_flutter/src/pages/producto_page.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_flutter/src/bloc/provider.dart';
 import 'package:firebase_flutter/src/pages/home_page.dart';
@@ -14,8 +15,9 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         initialRoute: 'home',
         routes: {
-          'login' : (BuildContext context) => LoginPage(),
-          'home'  : (BuildContext context) => HomePage()
+          'login'    : (BuildContext context) => LoginPage(),
+          'home'     : (BuildContext context) => HomePage(),
+          'producto' : (BuildContext context) => ProductoPage(),
         },
         theme: ThemeData(
           primaryColor: Colors.deepPurple
