@@ -1,4 +1,5 @@
 import 'package:firebase_flutter/src/models/producto_model.dart';
+import 'package:firebase_flutter/src/providers/productos_provider.dart';
 import 'package:firebase_flutter/src/utils/utils.dart' as utils;
 import 'package:flutter/material.dart';
 class ProductoPage extends StatefulWidget {
@@ -9,6 +10,7 @@ class ProductoPage extends StatefulWidget {
 
 class _ProductoPageState extends State<ProductoPage> {
   final formKey= GlobalKey<FormState>();
+  final productoProvider = new ProductosProvider();
 
   ProductoModel producto = new ProductoModel();
 
@@ -132,6 +134,8 @@ class _ProductoPageState extends State<ProductoPage> {
     print(producto.titulo);
     print(producto.valor);
     print(producto.disponible);
+    productoProvider.crearProducto(producto);
+
   }
 
 }
