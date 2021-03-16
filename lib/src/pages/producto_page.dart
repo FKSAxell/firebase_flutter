@@ -175,16 +175,19 @@ class _ProductoPageState extends State<ProductoPage> {
       content: Text(mensaje),
       duration: Duration(milliseconds: 1500),
     );
-
-    
-
   }
 
 
  _mostrarFoto() {
  
     if (producto.fotoUrl != null) {
-      return Container();
+      return FadeInImage(
+                placeholder: AssetImage('assets/jar-loading.gif'), 
+                image: NetworkImage(producto.fotoUrl),
+                height: 300.0,
+                width: double.infinity,
+                fit:BoxFit.contain,
+              );
     } else {
       if( foto != null ){
         return Image.file(
