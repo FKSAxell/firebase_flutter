@@ -1,9 +1,14 @@
 import 'package:firebase_flutter/src/models/producto_model.dart';
 import 'package:firebase_flutter/src/providers/productos_provider.dart';
 import 'package:flutter/material.dart';
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   final productosProvider = new ProductosProvider();  
-  
+
   @override
   Widget build(BuildContext context) {
   
@@ -21,7 +26,8 @@ class HomePage extends StatelessWidget {
       return FloatingActionButton(
         child: Icon(Icons.add),
         backgroundColor: Colors.deepPurple,
-        onPressed: () => Navigator.pushNamed(context, 'producto')
+        onPressed: ()=>Navigator.pushNamed(context, "producto")
+                        .then((value) => setState((){})),
       );
 
   }
@@ -55,12 +61,11 @@ class HomePage extends StatelessWidget {
 
         title: Text('${ producto.titulo } - ${ producto.valor }'),
         subtitle: Text(producto.id),
-        onTap: ()=> Navigator.pushNamed(context, 'producto'),
+        onTap: () => Navigator.pushNamed(context, "producto", arguments: producto)
+                      .then((value) => setState((){})),
 
       ),
     );
 
   }
-
-
 }
