@@ -49,8 +49,7 @@ class HomePage extends StatelessWidget {
       key:UniqueKey(),
       background: Container(color:Colors.red),
       onDismissed: (direction){
-        // TODO: borrar despues
-
+        productosProvider.borrarProducto(producto.id);
       },
       child: ListTile(
 

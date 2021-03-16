@@ -37,6 +37,13 @@ class ProductosProvider{
     return productosL;
   }
 
+  Future<int> borrarProducto( String id ) async {
+    final url  = '$_url/productos/$id.json';
+    final resp = await http.delete(Uri.parse(url));
+    print(resp.body);
+    return 1;
+  }
+
 
 
 
