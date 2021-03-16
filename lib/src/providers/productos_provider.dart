@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:firebase_flutter/src/models/producto_model.dart';
-import 'package:flutter/material.dart' ;
+// import 'package:flutter/material.dart' ;
 import 'package:http/http.dart' as http;
 import 'package:mime_type/mime_type.dart';
 import 'package:http_parser/http_parser.dart';
@@ -18,7 +18,7 @@ class ProductosProvider{
 
     final decodeData = json.decode(resp.body);
 
-    // print( decodeData );
+    print( decodeData );
     return true;
   }
 

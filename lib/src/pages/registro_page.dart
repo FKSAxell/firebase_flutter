@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_flutter/src/bloc/login_bloc.dart';
 import 'package:firebase_flutter/src/bloc/provider.dart';
-class LoginPage extends StatelessWidget {
+class RegistroPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -111,7 +111,7 @@ class LoginPage extends StatelessWidget {
             ),
             child: Column(
               children: [
-                Text("Ingreso", style: TextStyle(fontSize: 20.0)),
+                Text("Crear Cuenta", style: TextStyle(fontSize: 20.0)),
                 SizedBox(height: 40.0),
                 _crearEmail(bloc),
                 SizedBox(height: 30.0),
@@ -127,8 +127,8 @@ class LoginPage extends StatelessWidget {
           Container( 
             padding: EdgeInsets.only(top:10.0), 
             child: TextButton(
-              onPressed: ()=> Navigator.restorablePushReplacementNamed(context, 'registro'), 
-              child: Text('Crear una nueva cuenta',
+              onPressed: ()=> Navigator.restorablePushReplacementNamed(context, 'login'), 
+              child: Text('¿Ya tienes cuenta? Login',
               style: TextStyle(color:Colors.deepPurple),))
           ),
           

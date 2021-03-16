@@ -1,4 +1,5 @@
 import 'package:firebase_flutter/src/pages/producto_page.dart';
+import 'package:firebase_flutter/src/pages/registro_page.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_flutter/src/bloc/provider.dart';
 import 'package:firebase_flutter/src/pages/home_page.dart';
@@ -13,11 +14,12 @@ class MyApp extends StatelessWidget {
         child: MaterialApp(
         title: 'Material App',
         debugShowCheckedModeBanner: false,
-        initialRoute: 'home',
+        initialRoute: 'login',
         routes: {
           'login'    : (BuildContext context) => LoginPage(),
           'home'     : (BuildContext context) => HomePage(),
           'producto' : (BuildContext context) => ProductoPage(),
+          'registro' : (BuildContext context) => RegistroPage(),
         },
         theme: ThemeData(
           primaryColor: Colors.deepPurple
