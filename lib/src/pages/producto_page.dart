@@ -1,7 +1,10 @@
+import 'dart:io';
+
 import 'package:firebase_flutter/src/models/producto_model.dart';
 import 'package:firebase_flutter/src/providers/productos_provider.dart';
 import 'package:firebase_flutter/src/utils/utils.dart' as utils;
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 class ProductoPage extends StatefulWidget {
 
   @override
@@ -17,6 +20,8 @@ class _ProductoPageState extends State<ProductoPage> {
 
   ProductoModel producto = new ProductoModel();
 
+  File foto;
+
   @override
   Widget build(BuildContext context) {
 
@@ -31,8 +36,12 @@ class _ProductoPageState extends State<ProductoPage> {
       appBar: AppBar(
         title:Text("Producto"),
         actions: [
-          IconButton(icon: Icon(Icons.photo_size_select_actual), onPressed: (){}),
-          IconButton(icon: Icon(Icons.camera_alt), onPressed: (){}),
+          IconButton(icon: Icon(Icons.photo_size_select_actual), 
+            onPressed: () => _seleccionarfoto(ImageSource.gallery),
+          ),
+          IconButton(icon: Icon(Icons.camera_alt), 
+            onPressed:() => _tomarfoto(ImageSource.camera),
+          ),
           
         ],
       ),
@@ -44,6 +53,7 @@ class _ProductoPageState extends State<ProductoPage> {
             key: formKey,
             child: Column(
               children: [
+                _mostrarFoto(),
                 _crearNombre(),
                 _crearPrecio(),
                 _crearDisponible(),
@@ -139,13 +149,17 @@ class _ProductoPageState extends State<ProductoPage> {
     );
   }
 
-  void _submit(){
+  void _submit() async {
     if(!formKey.currentState.validate()) return;
     formKey.currentState.save();
     // print(producto.titulo);
     // print(producto.valor);
     // print(producto.disponible);
     setState(() { _guardando=true; });
+
+    if(foto!=null){
+      producto.fotoUrl = await productoProvider.subirImagen(foto);
+    }
     if(producto.id==null){
       productoProvider.crearProducto(producto);
     }else{
@@ -163,6 +177,64 @@ class _ProductoPageState extends State<ProductoPage> {
     );
 
     
+
+  }
+
+
+ _mostrarFoto() {
+ 
+    if (producto.fotoUrl != null) {
+      return Container();
+    } else {
+      if( foto != null ){
+        return Image.file(
+          foto,
+          fit: BoxFit.cover,
+          height: 300.0,
+        );
+      }
+      return Image.asset('assets/no-image.png');
+    }
+  }
+
+  void _seleccionarfoto(ImageSource origin) async {
+
+    final _picker = ImagePicker();
+ 
+    final pickedFile = await _picker.getImage(
+      source: origin,
+    );
+    
+    if(pickedFile == null) return;
+
+    foto = File(pickedFile.path);
+ 
+    if (foto != null) {
+      producto.fotoUrl = null;
+    }
+ 
+    setState(() {});
+  
+  }
+
+  void _tomarfoto(ImageSource origin) async {
+
+    final _picker = ImagePicker();
+ 
+    final pickedFile = await _picker.getImage(
+      source: origin,
+    );
+    
+    if(pickedFile == null) return;
+
+    foto = File(pickedFile.path);
+
+    if (foto != null) {
+      producto.fotoUrl = null;
+    }
+
+    setState(() {});
+
 
   }
 
