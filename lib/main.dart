@@ -18,12 +18,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final prefs = new PreferenciasUsuario();
     print(prefs.token);
+    final rutaInicial= (prefs.token.length > 0)
+                        ? 'home'
+                        : 'login'
+                        ;
 
     return Provider(
         child: MaterialApp(
         title: 'Material App',
         debugShowCheckedModeBanner: false,
-        initialRoute: 'login',
+        initialRoute: rutaInicial,
         routes: {
           'login'    : (BuildContext context) => LoginPage(),
           'home'     : (BuildContext context) => HomePage(),
