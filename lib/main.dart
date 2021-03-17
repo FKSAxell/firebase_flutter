@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
     final prefs = new PreferenciasUsuario();
     print(prefs.token);
     final rutaInicial= (prefs.token.length > 0)
-                        ? 'home'
+                        ? 'login'
                         : 'login'
                         ;
 

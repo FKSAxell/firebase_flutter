@@ -45,7 +45,9 @@ class ProductosProvider{
 
     final resp = await http.get( Uri.parse(url));
     final Map<String,dynamic> decodeData = json.decode(resp.body);
-    if (decodeData ==null ) return [];
+    if (decodeData == null ) return [];
+
+    if (decodeData['error'] != null ) return [];
 
     final List<ProductoModel> productosL=[];
 
