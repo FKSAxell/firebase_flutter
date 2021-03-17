@@ -225,6 +225,8 @@ class LoginPage extends StatelessWidget {
 
     Map info = await usuarioProvider.login(bloc.email, bloc.password);
     if(info['ok']){
+      final snackBar =SnackBar(content: Text("Login Exitoso"));
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
       Navigator.pushReplacementNamed(context, 'home');
     }else{
       mostrarAlerta(info['mensaje'],context);

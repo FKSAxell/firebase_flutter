@@ -224,6 +224,8 @@ class RegistroPage extends StatelessWidget {
 
     Map info = await usuarioProvider.nuevoUsuario(bloc.email,bloc.password);
     if(info['ok']){
+      final snackBar = SnackBar(content: Text("Usuario Registrado"));
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
       Navigator.pushReplacementNamed(context, 'home');
     }else{
       mostrarAlerta(info['mensaje'],context);
