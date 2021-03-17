@@ -1,4 +1,5 @@
 import 'package:firebase_flutter/src/providers/usuario_provider.dart';
+import 'package:firebase_flutter/src/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_flutter/src/bloc/login_bloc.dart';
 import 'package:firebase_flutter/src/bloc/provider.dart';
@@ -215,14 +216,18 @@ class RegistroPage extends StatelessWidget {
     );
   }
 
-  _register(LoginBloc bloc, BuildContext context ){
+  _register(LoginBloc bloc, BuildContext context ) async {
     // print('===========');
     // print('Email ${bloc.email}');
     // print('Password: ${bloc.password} ');
     // print('===========');
 
-    usuarioProvider.nuevoUsuario(bloc.email,bloc.password);
-    
+    Map info = await usuarioProvider.nuevoUsuario(bloc.email,bloc.password);
+    if(info['ok']){
+      Navigator.pushReplacementNamed(context, 'home');
+    }else{
+      mostrarAlerta(info['mensaje'],context);
+    }
     // Navigator.pushReplacementNamed(context, 'home');
   }
 

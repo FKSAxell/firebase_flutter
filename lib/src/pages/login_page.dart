@@ -1,4 +1,5 @@
 import 'package:firebase_flutter/src/providers/usuario_provider.dart';
+import 'package:firebase_flutter/src/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_flutter/src/bloc/login_bloc.dart';
 import 'package:firebase_flutter/src/bloc/provider.dart';
@@ -216,15 +217,18 @@ class LoginPage extends StatelessWidget {
     );
   }
 
-  _login(LoginBloc bloc, BuildContext context ){
+  _login(LoginBloc bloc, BuildContext context ) async {
     // print('===========');
     // print('Email ${bloc.email}');
     // print('Password: ${bloc.password} ');
     // print('===========');
 
-    usuarioProvider.login(bloc.email, bloc.password);
-
-    // Navigator.pushReplacementNamed(context, 'home');
+    Map info = await usuarioProvider.login(bloc.email, bloc.password);
+    if(info['ok']){
+      Navigator.pushReplacementNamed(context, 'home');
+    }else{
+      mostrarAlerta(info['mensaje'],context);
+    }
   }
 
 }
