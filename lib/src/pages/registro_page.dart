@@ -1,7 +1,11 @@
+import 'package:firebase_flutter/src/providers/usuario_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_flutter/src/bloc/login_bloc.dart';
 import 'package:firebase_flutter/src/bloc/provider.dart';
 class RegistroPage extends StatelessWidget {
+
+  final usuarioProvider = new UsuarioProvider();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -195,7 +199,7 @@ class RegistroPage extends StatelessWidget {
       stream: bloc.passwordStream,
       builder:(BuildContext context, AsyncSnapshot snapshot){
         return TextButton(
-          onPressed: snapshot.hasData ? (){_login(bloc,context);} : null, 
+          onPressed: snapshot.hasData ? (){_register(bloc,context);} : null, 
           child: Container(
             padding: EdgeInsets.symmetric(horizontal: 80.0, vertical: 8.0),
             child: Text('Ingresar'),
@@ -211,13 +215,15 @@ class RegistroPage extends StatelessWidget {
     );
   }
 
-  _login(LoginBloc bloc, BuildContext context ){
-    print('===========');
-    print('Email ${bloc.email}');
-    print('Password: ${bloc.password} ');
-    print('===========');
+  _register(LoginBloc bloc, BuildContext context ){
+    // print('===========');
+    // print('Email ${bloc.email}');
+    // print('Password: ${bloc.password} ');
+    // print('===========');
 
-    Navigator.pushReplacementNamed(context, 'home');
+    usuarioProvider.nuevoUsuario(bloc.email,bloc.password);
+    
+    // Navigator.pushReplacementNamed(context, 'home');
   }
 
 }

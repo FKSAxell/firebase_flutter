@@ -1,7 +1,12 @@
+import 'package:firebase_flutter/src/providers/usuario_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_flutter/src/bloc/login_bloc.dart';
 import 'package:firebase_flutter/src/bloc/provider.dart';
 class LoginPage extends StatelessWidget {
+
+  
+  final usuarioProvider = new UsuarioProvider();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -212,12 +217,14 @@ class LoginPage extends StatelessWidget {
   }
 
   _login(LoginBloc bloc, BuildContext context ){
-    print('===========');
-    print('Email ${bloc.email}');
-    print('Password: ${bloc.password} ');
-    print('===========');
+    // print('===========');
+    // print('Email ${bloc.email}');
+    // print('Password: ${bloc.password} ');
+    // print('===========');
 
-    Navigator.pushReplacementNamed(context, 'home');
+    usuarioProvider.login(bloc.email, bloc.password);
+
+    // Navigator.pushReplacementNamed(context, 'home');
   }
 
 }
